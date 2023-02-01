@@ -1,0 +1,224 @@
+{
+	"ABI version": 2,
+	"version": "2.2",
+	"header": ["pubkey", "time", "expire"],
+	"functions": [
+		{
+			"name": "constructor",
+			"inputs": [
+				{"name":"tokenRootAddr","type":"address"},
+				{"name":"addrOwner","type":"address"},
+				{"name":"addrNft","type":"address"},
+				{"name":"oldManager","type":"address"},
+				{"name":"sendGasTo","type":"address"},
+				{"name":"price","type":"uint128"},
+				{"name":"marketFee","type":"uint128"},
+				{"name":"leftOnOfferAfterFinish","type":"uint128"},
+				{"name":"nftTransferFee","type":"uint128"},
+				{"name":"methodsCallsFee","type":"uint128"},
+				{"name":"marketFeeDecimals","type":"uint8"},
+				{"name":"bidDelta","type":"uint8"},
+				{"name":"auctionDuration","type":"uint256"},
+				{"name":"extraSecondsAmount","type":"uint256"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "finishAuction",
+			"inputs": [
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "getFeesValues",
+			"inputs": [
+				{"name":"answerId","type":"uint32"}
+			],
+			"outputs": [
+				{"name":"totalFeeValue","type":"uint128"},
+				{"name":"royalties","type":"map(address,uint128)"},
+				{"name":"marketFeeValue","type":"uint128"}
+			]
+		},
+		{
+			"name": "getAuctionInfo",
+			"inputs": [
+				{"name":"answerId","type":"uint32"}
+			],
+			"outputs": [
+				{"name":"bidDelta","type":"uint8"},
+				{"name":"extraSecondsAmount","type":"uint256"},
+				{"name":"auctionDuration","type":"uint256"},
+				{"name":"auctionEndTime","type":"uint256"},
+				{"name":"nexBidValue","type":"uint128"},
+				{"name":"currentBidValue","type":"uint128"},
+				{"name":"currentBidAddress","type":"address"}
+			]
+		},
+		{
+			"name": "setRoyalty",
+			"inputs": [
+				{"name":"royalty","type":"map(address,uint8)"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "getOfferInfo",
+			"inputs": [
+				{"name":"answerId","type":"uint32"}
+			],
+			"outputs": [
+				{"name":"id","type":"uint256"},
+				{"name":"nft","type":"address"},
+				{"name":"rootAddress","type":"address"},
+				{"name":"owner","type":"address"},
+				{"name":"oldManager","type":"address"},
+				{"name":"sendGasTo","type":"address"},
+				{"name":"price","type":"uint128"},
+				{"name":"isActive","type":"bool"}
+			]
+		},
+		{
+			"name": "getFeesInfo",
+			"inputs": [
+				{"name":"answerId","type":"uint32"}
+			],
+			"outputs": [
+				{"name":"marketFee","type":"uint128"},
+				{"name":"marketFeeDecimals","type":"uint8"},
+				{"name":"leftOnOfferAfterFinish","type":"uint128"},
+				{"name":"nftTransferFee","type":"uint128"},
+				{"name":"methodsCallsFee","type":"uint128"}
+			]
+		},
+		{
+			"name": "royaltyInfo",
+			"inputs": [
+				{"name":"answerId","type":"uint32"}
+			],
+			"outputs": [
+				{"name":"royalty","type":"map(address,uint8)"}
+			]
+		},
+		{
+			"name": "supportsInterface",
+			"inputs": [
+				{"name":"answerId","type":"uint32"},
+				{"name":"interfaceID","type":"uint32"}
+			],
+			"outputs": [
+				{"name":"value0","type":"bool"}
+			]
+		}
+	],
+	"data": [
+		{"key":1,"name":"_marketRootAddr","type":"address"},
+		{"key":2,"name":"_id","type":"uint256"}
+	],
+	"events": [
+		{
+			"name": "AuctionCreated",
+			"inputs": [
+				{"name":"marketRoot","type":"address"},
+				{"name":"collection","type":"address"},
+				{"name":"owner","type":"address"},
+				{"name":"addrNft","type":"address"},
+				{"name":"oldManager","type":"address"},
+				{"name":"price","type":"uint128"},
+				{"name":"auctionDuration","type":"uint256"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "BidPlaced",
+			"inputs": [
+				{"name":"buyerAddress","type":"address"},
+				{"name":"value","type":"uint128"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "BidDeclined",
+			"inputs": [
+				{"name":"buyerAddress","type":"address"},
+				{"name":"value","type":"uint128"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "AuctionFinished",
+			"inputs": [
+				{"name":"owner","type":"address"},
+				{"name":"oldManager","type":"address"},
+				{"name":"newOwner","type":"address"},
+				{"name":"price","type":"uint128"},
+				{"name":"startPrice","type":"uint128"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "EndTimeChanged",
+			"inputs": [
+				{"name":"oldEndTime","type":"uint256"},
+				{"name":"newEndTime","type":"uint256"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "AuctionExpired",
+			"inputs": [
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "OfferIsActivated",
+			"inputs": [
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "OfferIsBounced",
+			"inputs": [
+			],
+			"outputs": [
+			]
+		}
+	],
+	"fields": [
+		{"name":"_pubkey","type":"uint256"},
+		{"name":"_timestamp","type":"uint64"},
+		{"name":"_constructorFlag","type":"bool"},
+		{"name":"_supportedInterfaces","type":"optional(cell)"},
+		{"name":"_marketRootAddr","type":"address"},
+		{"name":"_id","type":"uint256"},
+		{"name":"_price","type":"uint128"},
+		{"name":"_addrNft","type":"address"},
+		{"name":"_tokenRootAddr","type":"address"},
+		{"name":"_owner","type":"address"},
+		{"name":"_oldManager","type":"address"},
+		{"name":"_sendGasTo","type":"address"},
+		{"name":"_leftOnOfferAfterFinish","type":"uint128"},
+		{"name":"_nftTransferFee","type":"uint128"},
+		{"name":"_methodsCallsFee","type":"uint128"},
+		{"name":"_marketFee","type":"uint128"},
+		{"name":"_marketFeeDecimals","type":"uint8"},
+		{"name":"_isActive","type":"bool"},
+		{"name":"_royalty","type":"map(address,uint8)"},
+		{"name":"_bidDelta","type":"uint8"},
+		{"name":"_auctionDuration","type":"uint256"},
+		{"name":"_auctionEndTime","type":"uint256"},
+		{"name":"_extraSecondsAmount","type":"uint256"},
+		{"name":"_nextBidValue","type":"uint128"},
+		{"components":[{"name":"addr","type":"address"},{"name":"value","type":"uint128"}],"name":"_currentBid","type":"tuple"}
+	]
+}

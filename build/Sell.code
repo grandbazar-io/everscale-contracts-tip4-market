@@ -1,0 +1,1616 @@
+.version sol 0.58.1
+
+.macro constructor
+DROP
+GETGLOB 2
+ISNULL
+IFREF {
+	CALL $c4_to_c7_with_init_storage$
+}
+GETGLOB 6
+THROWIF 51
+OVER
+PUSHCONT {
+	LDREF
+	ENDS
+	CTOS
+}
+IF
+LDMSGADDR
+LDREF
+ENDS
+CTOS
+LDMSGADDR
+LDREF
+ENDS
+CTOS
+LDMSGADDR
+LDREF
+ENDS
+CTOS
+LDMSGADDR
+LDREF
+ENDS
+CTOS
+LDMSGADDR
+LDU 128
+LDU 128
+LDU 128
+LDREF
+ENDS
+CTOS
+LDU 128
+LDU 128
+LDU 8
+ENDS
+BLKPUSH 4, 10
+ROLL 10
+PUSH S10
+BLKSWAP 5, 6
+.loc ../contracts/abstract/Offer.sol, 61
+GETGLOB 9
+GETGLOB 11
+SDEQ
+THROWIFNOT 202
+.loc ../contracts/abstract/Offer.sol, 65
+ACCEPT
+.loc ../contracts/abstract/Offer.sol, 67
+ROLL 10
+SETGLOB 15
+.loc ../contracts/abstract/Offer.sol, 68
+ROLL 9
+SETGLOB 16
+.loc ../contracts/abstract/Offer.sol, 69
+ROLL 7
+SETGLOB 17
+.loc ../contracts/abstract/Offer.sol, 70
+ROLL 6
+SETGLOB 18
+.loc ../contracts/abstract/Offer.sol, 72
+ROLL 4
+SETGLOB 22
+.loc ../contracts/abstract/Offer.sol, 73
+SETGLOB 23
+.loc ../contracts/abstract/Offer.sol, 74
+ROLL 3
+SETGLOB 13
+.loc ../contracts/abstract/Offer.sol, 75
+PUSH S3
+SETGLOB 14
+.loc ../contracts/abstract/Offer.sol, 77
+ROT
+SETGLOB 19
+.loc ../contracts/abstract/Offer.sol, 78
+SWAP
+SETGLOB 20
+.loc ../contracts/abstract/Offer.sol, 79
+SETGLOB 21
+.loc ../contracts/abstract/Offer.sol, 81
+PUSHINT 839183401
+GETGLOB 10
+NEWC
+STONE
+ROTREV
+PUSHINT 32
+DICTUSETB
+DUP
+SETGLOB 10
+.loc ../contracts/abstract/Offer.sol, 85
+PUSHINT 1843993040
+SWAP
+NEWC
+STONE
+ROTREV
+PUSHINT 32
+DICTUSETB
+DUP
+SETGLOB 10
+.loc ../contracts/abstract/Offer.sol, 89
+PUSHINT 1148983374
+PUSHINT 1170429668
+XOR
+PUSHINT 540378077
+XOR
+PUSHINT 746254468
+XOR
+SWAP
+NEWC
+STONE
+ROTREV
+PUSHINT 32
+DICTUSETB
+SETGLOB 10
+.loc ../contracts/abstract/Offer.sol, 96
+GETGLOB 21
+SWAP
+TRUE
+NEWC
+STSLICECONST x6_
+STI 1
+STSLICECONST x1_
+STSLICE
+SWAP
+STGRAMS
+PUSHINT 7919889802000603214
+STUR 171
+ENDC
+PUSHINT 0
+SENDRAWMSG
+.loc ../contracts/Sell.sol, 40
+ACCEPT
+.loc ../contracts/Sell.sol, 42
+PUSHINT 1912371251
+GETGLOB 10
+NEWC
+STONE
+ROTREV
+PUSHINT 32
+DICTUSETB
+SETGLOB 10
+.loc ../contracts/Sell.sol, 44
+REVERSE 5, 0
+GETGLOB 11
+PUSHSLICE xc0000000000000000000000001
+NEWC
+STSLICE
+ROLLREV 6
+NEWC
+STSLICECONST x16fa0b1f
+STSLICE
+ROLLREV 5
+NEWC
+STSLICE
+ROLLREV 4
+NEWC
+STSLICE
+ROLLREV 3
+NEWC
+STSLICE
+ROTREV
+NEWC
+STSLICE
+STU 128
+STBREFR
+STBREFR
+STBREFR
+STBREFR
+STBREFR
+ENDC
+PUSHINT 0
+SENDRAWMSG
+.loc ../contracts/Sell.sol, 0
+CALLREF {
+	CALL $c7_to_c4$
+}
+THROW 0
+
+.macro receive_macro
+GETGLOB 6
+THROWIFNOT 76
+GETGLOB 2
+ISNULL
+IFREF {
+	CALL $c4_to_c7$
+}
+.loc ../contracts/Sell.sol, 55
+GETGLOB 24
+THROWIFNOT 207
+.loc ../contracts/Sell.sol, 56
+DEPTH
+ADDCONST -2
+PICK
+GETGLOB 13
+GEQ
+THROWIFNOT 204
+.loc ../contracts/Sell.sol, 57
+GETGLOB 9
+GETGLOB 16
+SDEQ
+THROWIF 203
+.loc ../contracts/Sell.sol, 59
+FALSE
+SETGLOB 24
+.loc ../contracts/Sell.sol, 61
+GETGLOB 13
+CALLREF {
+	CALL $_getFeesValues_internal_macro$
+}
+.loc ../contracts/Sell.sol, 67
+SWAP
+DUP
+PUSHINT 267
+DICTMIN
+PUSHCONT {
+	DUP
+	ROT
+	PLDU 128
+}
+PUSHCONT {
+	NULL
+	BLKPUSH 2, 0
+}
+IFELSE
+PUSHCONT {
+	PUSH S2
+	ISNULL
+	NOT
+}
+PUSHCONT {
+	.loc ../contracts/Sell.sol, 68
+	PUSH2 S0, S1
+	NEWC
+	STSLICECONST x42_
+	STSLICE
+	SWAP
+	STGRAMS
+	PUSHINT 107
+	STZEROES
+	ENDC
+	PUSHINT 1
+	SENDRAWMSG
+	.loc ../contracts/Sell.sol, 0
+	PUSH2 S2, S3
+	PUSHINT 267
+	DICTGETNEXT
+	PUSHCONT {
+		DUP
+		ROT
+		PLDU 128
+	}
+	PUSHCONT {
+		NULL
+		BLKPUSH 2, 0
+	}
+	IFELSE
+	BLKDROP2 3, 3
+}
+WHILE
+BLKDROP 4
+.loc ../contracts/Sell.sol, 71
+NEWDICT
+GETGLOB 18
+GETGLOB 9
+GETGLOB 20
+GETGLOB 14
+FALSE
+NEWC
+STSLICECONST x6_
+STI 1
+STSLICECONST x1_
+STSLICE
+SWAP
+STGRAMS
+PUSHINT 1
+STUR 107
+ROLLREV 3
+NEWC
+STSLICECONST x11dd9e92
+STSLICE
+ROTREV
+NEWC
+STSLICE
+STDICT
+STBREFR
+STBREFR
+ENDC
+PUSHINT 0
+SENDRAWMSG
+.loc ../contracts/Sell.sol, 76
+GETGLOB 13
+GETGLOB 9
+GETGLOB 17
+GETGLOB 14
+GETGLOB 16
+GETGLOB 12
+ROLL 6
+GETGLOB 11
+FALSE
+NEWC
+STSLICECONST x6_
+STI 1
+STSLICECONST x1_
+STSLICE
+SWAP
+STGRAMS
+PUSHINT 1
+STUR 107
+ROLLREV 6
+NEWC
+STSLICECONST x78bfe40d
+STU 256
+STSLICE
+ROLLREV 4
+NEWC
+STSLICE
+ROLLREV 3
+NEWC
+STSLICE
+ROTREV
+NEWC
+STSLICE
+STU 128
+STBREFR
+STBREFR
+STBREFR
+STBREFR
+ENDC
+PUSHINT 0
+SENDRAWMSG
+.loc ../contracts/Sell.sol, 80
+GETGLOB 9
+PUSHSLICE xc00000000000000000000000000ac97d8c
+NEWC
+STSLICE
+STSLICE
+ENDC
+PUSHINT 0
+SENDRAWMSG
+.loc ../contracts/Sell.sol, 82
+GETGLOB 19
+PUSHINT 2
+RAWRESERVE
+.loc ../contracts/Sell.sol, 83
+GETGLOB 18
+GETGLOB 16
+SDEQ
+PUSHCONT {
+	.loc ../contracts/Sell.sol, 84
+	GETGLOB 16
+}
+PUSHCONT {
+	.loc ../contracts/Sell.sol, 86
+	GETGLOB 13
+	OVER
+	SUB
+	UFITS 128
+	GETGLOB 16
+	NEWC
+	STSLICECONST x42_
+	STSLICE
+	SWAP
+	STGRAMS
+	PUSHINT 107
+	STZEROES
+	ENDC
+	PUSHINT 1
+	SENDRAWMSG
+	.loc ../contracts/Sell.sol, 87
+	GETGLOB 18
+}
+IFELSE
+NEWC
+STSLICECONST x42_
+STSLICE
+PUSHINT 111
+STZEROES
+ENDC
+PUSHINT 128
+SENDRAWMSG
+.loc ../contracts/Sell.sol, 0
+DROP
+CALLREF {
+	CALL $c7_to_c4$
+}
+
+.macro cancelOrder
+DROP
+GETGLOB 6
+THROWIFNOT 76
+GETGLOB 2
+ISNULL
+IFREF {
+	CALL $c4_to_c7$
+}
+.loc ../contracts/Sell.sol, 91
+ENDS
+.loc ../contracts/Sell.sol, 0
+CALLREF {
+	CALL $cancelOrder_internal_macro$
+}
+DROP
+CALLREF {
+	CALL $c7_to_c4$
+}
+THROW 0
+
+.macro cancelOrder_internal_macro
+.loc ../contracts/abstract/Offer.sol, 229
+GETGLOB 9
+GETGLOB 17
+SDEQ
+THROWIFNOT 200
+.loc ../contracts/Sell.sol, 92
+ACCEPT
+.loc ../contracts/Sell.sol, 94
+NEWDICT
+CALLREF {
+	CALL $_cancelOrder_internal_macro$
+}
+.loc ../contracts/Sell.sol, 0
+
+.macro cancelOrderWithCallbacks
+DROP
+GETGLOB 6
+THROWIFNOT 76
+GETGLOB 2
+ISNULL
+IFREF {
+	CALL $c4_to_c7$
+}
+.loc ../contracts/Sell.sol, 97
+LDDICT
+ENDS
+.loc ../contracts/Sell.sol, 0
+CALLREF {
+	CALL $cancelOrderWithCallbacks_internal_macro$
+}
+DROP
+CALLREF {
+	CALL $c7_to_c4$
+}
+THROW 0
+
+.macro cancelOrderWithCallbacks_internal_macro
+.loc ../contracts/abstract/Offer.sol, 229
+GETGLOB 9
+GETGLOB 17
+SDEQ
+THROWIFNOT 200
+.loc ../contracts/Sell.sol, 100
+ACCEPT
+.loc ../contracts/Sell.sol, 102
+CALLREF {
+	CALL $_cancelOrder_internal_macro$
+}
+.loc ../contracts/Sell.sol, 0
+
+.macro getFeesValues
+DROP
+GETGLOB 6
+THROWIFNOT 76
+GETGLOB 2
+ISNULL
+IFREF {
+	CALL $c4_to_c7$
+}
+.loc ../contracts/Sell.sol, 105
+LDU 32
+GETGLOB 4
+ROT
+SETINDEXQ 5
+SETGLOB 4
+ENDS
+.loc ../contracts/Sell.sol, 0
+CALLREF {
+	CALL $getFeesValues_internal_macro$
+}
+PUSH S3
+PUSHCONT {
+	PUSH S5
+	CTOS
+	LDU 2
+	LDMSGADDR
+	DROP
+	NIP
+	NEWC
+	STSLICECONST xc
+	STSLICE
+	PUSHINT 98
+	STZEROES
+	REVERSE 3, 1
+	STSLICECONST xac7af084
+	STU 128
+	STDICT
+	STU 128
+	ENDC
+	PUSHINT 0
+}
+PUSHCONT {
+	GETGLOB 4
+	DUP
+	INDEX 3
+	OVER
+	THIRD
+	GETGLOB 9
+	ROLL 3
+	SECOND
+	NEWC
+	STSLICECONST x2_
+	STI 1
+	STSLICECONST x1_
+	STSLICE
+	SWAP
+	STGRAMS
+	STDICT
+	PUSHINT 1
+	STUR 106
+	REVERSE 4, 0
+	NEWC
+	GETGLOB 4
+	INDEX 5
+	STUR 32
+	STU 128
+	STDICT
+	STU 128
+	STBREFR
+	ENDC
+	GETGLOB 4
+	INDEX 4
+}
+IFELSE
+SENDRAWMSG
+IFREF {
+	CALL $upd_only_time_in_c4$
+}
+THROW 0
+
+.macro getFeesValues_internal_macro
+.loc ../contracts/Sell.sol, 117
+GETGLOB 13
+CALLREF {
+	CALL $_getFeesValues_internal_macro$
+}
+.loc ../contracts/Sell.sol, 0
+
+.globl	_cancelOrder_internal
+.type	_cancelOrder_internal, @function
+CALL $_cancelOrder_internal_macro$
+
+.macro _cancelOrder_internal_macro
+.loc ../contracts/Sell.sol, 123
+FALSE
+SETGLOB 24
+.loc ../contracts/Sell.sol, 124
+DUP
+GETGLOB 18
+GETGLOB 17
+ROLL 3
+DICTEMPTY
+PUSHCONT {
+	GETGLOB 21
+}
+PUSHCONT {
+	DEPTH
+	ADDCONST -2
+	PICK
+}
+IFELSE
+GETGLOB 14
+FALSE
+NEWC
+STSLICECONST x6_
+STI 1
+STSLICECONST x1_
+STSLICE
+SWAP
+STGRAMS
+PUSHINT 1
+STUR 107
+ROLLREV 3
+NEWC
+STSLICECONST x09158dea
+STSLICE
+ROTREV
+NEWC
+STSLICE
+STDICT
+STBREFR
+STBREFR
+ENDC
+PUSHINT 0
+SENDRAWMSG
+.loc ../contracts/Sell.sol, 130
+GETGLOB 13
+GETGLOB 18
+GETGLOB 17
+GETGLOB 14
+GETGLOB 16
+GETGLOB 12
+GETGLOB 21
+GETGLOB 11
+FALSE
+NEWC
+STSLICECONST x6_
+STI 1
+STSLICECONST x1_
+STSLICE
+SWAP
+STGRAMS
+PUSHINT 1
+STUR 107
+ROLLREV 6
+NEWC
+STSLICECONST x1270801e
+STU 256
+STSLICE
+ROLLREV 4
+NEWC
+STSLICE
+ROLLREV 3
+NEWC
+STSLICE
+ROTREV
+NEWC
+STSLICE
+STU 128
+STBREFR
+STBREFR
+STBREFR
+STBREFR
+ENDC
+PUSHINT 0
+SENDRAWMSG
+.loc ../contracts/Sell.sol, 134
+PUSHREF {
+	.blob xc0000000000000000000000000081b6320
+}
+PUSHINT 0
+SENDRAWMSG
+.loc ../contracts/Sell.sol, 136
+GETGLOB 18
+NEWC
+STSLICECONST x42_
+STSLICE
+PUSHINT 111
+STZEROES
+ENDC
+PUSHINT 160
+SENDRAWMSG
+.loc ../contracts/Sell.sol, 0
+
+.macro setRoyalty
+DROP
+GETGLOB 6
+THROWIFNOT 76
+GETGLOB 2
+ISNULL
+IFREF {
+	CALL $c4_to_c7$
+}
+.loc ../contracts/abstract/Offer.sol, 104
+LDDICT
+ENDS
+.loc ../contracts/abstract/Offer.sol, 0
+CALLREF {
+	CALL $setRoyalty_internal_macro$
+}
+DROP
+CALLREF {
+	CALL $c7_to_c4$
+}
+THROW 0
+
+.macro setRoyalty_internal_macro
+.loc ../contracts/abstract/Offer.sol, 107
+GETGLOB 9
+GETGLOB 14
+SDEQ
+THROWIFNOT 200
+.loc ../contracts/abstract/Offer.sol, 112
+SETGLOB 25
+.loc ../contracts/abstract/Offer.sol, 113
+TRUE
+SETGLOB 24
+.loc ../contracts/abstract/Offer.sol, 115
+PUSHREF {
+	.blob xc00000000000000000000000006c4f6d9d
+}
+PUSHINT 0
+SENDRAWMSG
+.loc ../contracts/abstract/Offer.sol, 0
+
+.globl	_getFeesValues_internal
+.type	_getFeesValues_internal, @function
+CALL $_getFeesValues_internal_macro$
+
+.macro _getFeesValues_internal_macro
+.loc ../contracts/abstract/Offer.sol, 118
+PUSHINT 0
+NEWDICT
+.loc ../contracts/abstract/Offer.sol, 130
+PUSHINT 10
+GETGLOB 23
+DUP2
+OR
+THROWIFNOT 69
+CALLREF {
+	CALL $__exp_macro$
+}
+UFITS 128
+.loc ../contracts/abstract/Offer.sol, 133
+PUSH S3
+GETGLOB 22
+PUSHINT 100
+MULDIV
+UFITS 128
+SWAP
+DIVC
+.loc ../contracts/abstract/Offer.sol, 137
+DUP
+POP S3
+.loc ../contracts/abstract/Offer.sol, 139
+GETGLOB 25
+DUP
+PUSHINT 267
+DICTMIN
+PUSHCONT {
+	DUP
+	ROT
+	PLDU 8
+}
+PUSHCONT {
+	NULL
+	BLKPUSH 2, 0
+}
+IFELSE
+PUSHCONT {
+	PUSH S2
+	ISNULL
+	NOT
+}
+PUSHCONT {
+	.loc ../contracts/abstract/Offer.sol, 140
+	DUP
+	GTINT 0
+	PUSHCONT {
+		PUSH2 S7, S0
+		PUSHINT 100
+		MULDIV
+		UFITS 128
+	}
+	PUSHCONT {
+		PUSHINT 0
+	}
+	IFELSE
+	.loc ../contracts/abstract/Offer.sol, 143
+	PUSH2 S7, S0
+	ADD
+	UFITS 128
+	POP S8
+	.loc ../contracts/abstract/Offer.sol, 144
+	PUSH2 S2, S6
+	ROT
+	NEWC
+	STU 128
+	ROTREV
+	PUSHINT 267
+	DICTSETB
+	POP S6
+	.loc ../contracts/abstract/Offer.sol, 0
+	PUSH2 S2, S3
+	PUSHINT 267
+	DICTGETNEXT
+	PUSHCONT {
+		DUP
+		ROT
+		PLDU 8
+	}
+	PUSHCONT {
+		NULL
+		BLKPUSH 2, 0
+	}
+	IFELSE
+	BLKDROP2 3, 3
+}
+WHILE
+BLKDROP 4
+BLKDROP2 1, 3
+.loc ../contracts/abstract/Offer.sol, 0
+
+.macro on_bounce_macro
+DROP
+GETGLOB 6
+THROWIFNOT 76
+GETGLOB 2
+ISNULL
+IFREF {
+	CALL $c4_to_c7$
+}
+.loc ../contracts/abstract/Offer.sol, 150
+TRUE
+SETGLOB 24
+.loc ../contracts/abstract/Offer.sol, 152
+PUSHREF {
+	.blob xc00000000000000000000000006c4f6d9d
+}
+PUSHINT 0
+SENDRAWMSG
+.loc ../contracts/abstract/Offer.sol, 0
+CALLREF {
+	CALL $c7_to_c4$
+}
+
+.macro getOfferInfo
+DROP
+GETGLOB 6
+THROWIFNOT 76
+GETGLOB 2
+ISNULL
+IFREF {
+	CALL $c4_to_c7$
+}
+.loc ../contracts/abstract/Offer.sol, 155
+LDU 32
+GETGLOB 4
+ROT
+SETINDEXQ 5
+SETGLOB 4
+ENDS
+.loc ../contracts/abstract/Offer.sol, 0
+CALLREF {
+	CALL $getOfferInfo_internal_macro$
+}
+PUSH S8
+PUSHCONT {
+	PUSH S10
+	CTOS
+	LDU 2
+	LDMSGADDR
+	DROP
+	NIP
+	NEWC
+	STSLICECONST xc
+	STSLICE
+	PUSHINT 1
+	STUR 98
+	REVERSE 9, 0
+	NEWC
+	STSLICECONST xc5c356e4
+	STU 256
+	STSLICE
+	ROLLREV 6
+	NEWC
+	STSLICE
+	ROLLREV 5
+	NEWC
+	STSLICE
+	ROLLREV 4
+	NEWC
+	STSLICE
+	ROLLREV 3
+	NEWC
+	STSLICE
+	STU 128
+	STI 1
+	STBREFR
+	STBREFR
+	STBREFR
+	STBREFR
+	STBREFR
+	ENDC
+	PUSHINT 0
+}
+PUSHCONT {
+	GETGLOB 4
+	DUP
+	INDEX 3
+	OVER
+	THIRD
+	GETGLOB 9
+	ROLL 3
+	SECOND
+	NEWC
+	STSLICECONST x2_
+	STI 1
+	STSLICECONST x1_
+	STSLICE
+	SWAP
+	STGRAMS
+	STDICT
+	PUSHINT 1
+	STUR 106
+	REVERSE 9, 0
+	NEWC
+	GETGLOB 4
+	INDEX 5
+	STUR 32
+	STU 256
+	STSLICE
+	ROLLREV 6
+	NEWC
+	STSLICE
+	ROLLREV 5
+	NEWC
+	STSLICE
+	ROLLREV 4
+	NEWC
+	STSLICE
+	ROLLREV 3
+	NEWC
+	STSLICE
+	STU 128
+	STI 1
+	STBREFR
+	STBREFR
+	STBREFR
+	STBREFR
+	STBREFR
+	ENDC
+	GETGLOB 4
+	INDEX 4
+}
+IFELSE
+SENDRAWMSG
+IFREF {
+	CALL $upd_only_time_in_c4$
+}
+THROW 0
+
+.macro getOfferInfo_internal_macro
+.loc ../contracts/abstract/Offer.sol, 173
+GETGLOB 4
+PUSHINT 0
+SETINDEXQ 2
+PUSHINT 64
+SETINDEXQ 4
+FALSE
+SETINDEXQ 1
+SETGLOB 4
+GETGLOB 12
+GETGLOB 14
+GETGLOB 11
+GETGLOB 16
+GETGLOB 17
+GETGLOB 18
+GETGLOB 13
+GETGLOB 24
+.loc ../contracts/abstract/Offer.sol, 0
+
+.macro getFeesInfo
+DROP
+GETGLOB 6
+THROWIFNOT 76
+GETGLOB 2
+ISNULL
+IFREF {
+	CALL $c4_to_c7$
+}
+.loc ../contracts/abstract/Offer.sol, 185
+LDU 32
+GETGLOB 4
+ROT
+SETINDEXQ 5
+SETGLOB 4
+ENDS
+.loc ../contracts/abstract/Offer.sol, 0
+CALLREF {
+	CALL $getFeesInfo_internal_macro$
+}
+PUSH S5
+PUSHCONT {
+	PUSH S7
+	CTOS
+	LDU 2
+	LDMSGADDR
+	DROP
+	NIP
+	NEWC
+	STSLICECONST xc
+	STSLICE
+	PUSHINT 1
+	STUR 98
+	REVERSE 6, 0
+	NEWC
+	STSLICECONST xa03583dd
+	STU 128
+	STU 8
+	STU 128
+	STU 128
+	STU 128
+	STBREFR
+	ENDC
+	PUSHINT 0
+}
+PUSHCONT {
+	GETGLOB 4
+	DUP
+	INDEX 3
+	OVER
+	THIRD
+	GETGLOB 9
+	ROLL 3
+	SECOND
+	NEWC
+	STSLICECONST x2_
+	STI 1
+	STSLICECONST x1_
+	STSLICE
+	SWAP
+	STGRAMS
+	STDICT
+	PUSHINT 1
+	STUR 106
+	REVERSE 6, 0
+	NEWC
+	GETGLOB 4
+	INDEX 5
+	STUR 32
+	STU 128
+	STU 8
+	STU 128
+	STU 128
+	STU 128
+	STBREFR
+	ENDC
+	GETGLOB 4
+	INDEX 4
+}
+IFELSE
+SENDRAWMSG
+IFREF {
+	CALL $upd_only_time_in_c4$
+}
+THROW 0
+
+.macro getFeesInfo_internal_macro
+.loc ../contracts/abstract/Offer.sol, 200
+GETGLOB 4
+PUSHINT 0
+SETINDEXQ 2
+PUSHINT 64
+SETINDEXQ 4
+FALSE
+SETINDEXQ 1
+SETGLOB 4
+GETGLOB 22
+GETGLOB 23
+GETGLOB 19
+GETGLOB 20
+GETGLOB 21
+.loc ../contracts/abstract/Offer.sol, 0
+
+.macro royaltyInfo
+DROP
+GETGLOB 6
+THROWIFNOT 76
+GETGLOB 2
+ISNULL
+IFREF {
+	CALL $c4_to_c7$
+}
+.loc ../contracts/abstract/Offer.sol, 209
+LDU 32
+GETGLOB 4
+ROT
+SETINDEXQ 5
+SETGLOB 4
+ENDS
+.loc ../contracts/abstract/Offer.sol, 0
+CALLREF {
+	CALL $royaltyInfo_internal_macro$
+}
+OVER
+PUSHCONT {
+	PUSH S3
+	CTOS
+	LDU 2
+	LDMSGADDR
+	DROP
+	NIP
+	NEWC
+	STSLICECONST xc
+	STSLICE
+	PUSHINT 3991476688
+	STUR 130
+	STDICT
+	ENDC
+	PUSHINT 0
+}
+PUSHCONT {
+	GETGLOB 4
+	DUP
+	INDEX 3
+	OVER
+	THIRD
+	GETGLOB 9
+	ROLL 3
+	SECOND
+	NEWC
+	STSLICECONST x2_
+	STI 1
+	STSLICECONST x1_
+	STSLICE
+	SWAP
+	STGRAMS
+	STDICT
+	PUSHINT 106
+	STZEROES
+	GETGLOB 4
+	INDEX 5
+	STUR 32
+	STDICT
+	ENDC
+	GETGLOB 4
+	INDEX 4
+}
+IFELSE
+SENDRAWMSG
+IFREF {
+	CALL $upd_only_time_in_c4$
+}
+THROW 0
+
+.macro royaltyInfo_internal_macro
+.loc ../contracts/abstract/Offer.sol, 217
+GETGLOB 4
+PUSHINT 0
+SETINDEXQ 2
+PUSHINT 64
+SETINDEXQ 4
+FALSE
+SETINDEXQ 1
+SETGLOB 4
+GETGLOB 25
+.loc ../contracts/abstract/Offer.sol, 0
+
+.macro supportsInterface
+DROP
+GETGLOB 6
+THROWIFNOT 76
+GETGLOB 2
+ISNULL
+IFREF {
+	CALL $c4_to_c7$
+}
+.loc ../node_modules/@itgold/everscale-tip/contracts/TIP6/TIP6.sol, 13
+LDU 32
+GETGLOB 4
+ROT
+SETINDEXQ 5
+SETGLOB 4
+LDU 32
+ENDS
+.loc ../node_modules/@itgold/everscale-tip/contracts/TIP6/TIP6.sol, 0
+CALLREF {
+	CALL $supportsInterface_internal_macro$
+}
+OVER
+PUSHCONT {
+	PUSH S3
+	CTOS
+	LDU 2
+	LDMSGADDR
+	DROP
+	NIP
+	NEWC
+	STSLICECONST xc
+	STSLICE
+	PUSHINT 2986667049
+	STUR 130
+	STI 1
+	ENDC
+	PUSHINT 0
+}
+PUSHCONT {
+	GETGLOB 4
+	DUP
+	INDEX 3
+	OVER
+	THIRD
+	GETGLOB 9
+	ROLL 3
+	SECOND
+	NEWC
+	STSLICECONST x2_
+	STI 1
+	STSLICECONST x1_
+	STSLICE
+	SWAP
+	STGRAMS
+	STDICT
+	PUSHINT 106
+	STZEROES
+	GETGLOB 4
+	INDEX 5
+	STUR 32
+	STI 1
+	ENDC
+	GETGLOB 4
+	INDEX 4
+}
+IFELSE
+SENDRAWMSG
+IFREF {
+	CALL $upd_only_time_in_c4$
+}
+THROW 0
+
+.macro supportsInterface_internal_macro
+.loc ../node_modules/@itgold/everscale-tip/contracts/TIP6/TIP6.sol, 14
+GETGLOB 4
+PUSHINT 0
+SETINDEXQ 2
+PUSHINT 64
+SETINDEXQ 4
+FALSE
+SETINDEXQ 1
+SETGLOB 4
+GETGLOB 10
+PUSHINT 32
+DICTUGET
+PUSHCONT {
+	PLDI 1
+}
+PUSHCONT {
+	PUSHINT 0
+}
+IFELSE
+.loc ../node_modules/@itgold/everscale-tip/contracts/TIP6/TIP6.sol, 0
+
+.macro c4_to_c7
+PUSHROOT
+CTOS
+LDU 256 ; pubkey c4
+LDU 64 ; pubkey timestamp c4
+LDU 1 ; ctor flag
+NIP
+LDDICT
+LDMSGADDR
+LDREF
+ENDS
+CTOS
+LDU 256
+LDU 128
+LDMSGADDR
+LDREF
+ENDS
+CTOS
+LDMSGADDR
+LDREF
+ENDS
+CTOS
+LDMSGADDR
+LDREF
+ENDS
+CTOS
+LDMSGADDR
+LDREF
+ENDS
+CTOS
+LDMSGADDR
+LDU 128
+LDU 128
+LDU 128
+LDREF
+ENDS
+CTOS
+LDU 128
+LDU 8
+LDI 1
+LDDICT
+ENDS
+PUSHINT 0
+GETGLOBVAR
+GETGLOB 1
+GETGLOB 2
+GETGLOB 3
+GETGLOB 4
+GETGLOB 5
+GETGLOB 6
+GETGLOB 7
+GETGLOB 8
+GETGLOB 9
+BLKSWAP 16, 10
+PUSHINT 26
+TUPLEVAR
+POP C7
+SETGLOB 3
+SETGLOB 2
+
+.macro c4_to_c7_with_init_storage
+PUSHROOT
+CTOS
+SBITS
+GTINT 1
+PUSHCONT {
+	PUSHINT 0
+	PUSHROOT
+	CTOS
+	PLDDICT ; D
+	PUSHINT 0
+	GETGLOBVAR
+	GETGLOB 1
+	GETGLOB 2
+	GETGLOB 3
+	GETGLOB 4
+	GETGLOB 5
+	GETGLOB 6
+	GETGLOB 7
+	GETGLOB 8
+	GETGLOB 9
+	NEWDICT
+	PUSHINT 1
+	PUSH S12
+	PUSHINT 64
+	DICTUGET
+	PUSHCONT {
+		PUSHREFSLICE {
+			.blob x8000000000000000000000000000000000000000000000000000000000000000001_
+		}
+	}
+	IFNOT
+	PUSHINT 2
+	PUSH S13
+	PUSHINT 64
+	DICTUGET
+	PUSHCONT {
+		PLDU 256
+	}
+	PUSHCONT {
+		PUSHINT 0
+	}
+	IFELSE
+	PUSHINT 0
+	PUSHREFSLICE {
+		.blob x8000000000000000000000000000000000000000000000000000000000000000001_
+	}
+	BLKPUSH 4, 0
+	PUSHINT 0
+	BLKPUSH 5, 0
+	NEWDICT
+	PUSHINT 26
+	TUPLEVAR
+	POP C7
+	PUSHINT 64
+	DICTUGET
+	THROWIFNOT 61
+	PLDU 256
+	SETGLOB 2
+	PUSHINT 0 ; timestamp
+	SETGLOB 3
+}
+IFREFELSE {
+	CALL $c4_to_c7$
+}
+
+.macro c7_to_c4
+PUSH C7
+FALSE
+PUSHINT 26
+SETINDEXVARQ
+PUSHINT 27
+UNTUPLEVAR
+DROP
+PUSHINT 26
+PUSHINT 0
+REVX
+BLKDROP 10
+GETGLOB 3
+GETGLOB 2
+NEWC
+STU 256
+STU 64
+STONE
+STDICT
+STSLICE
+ROLLREV 14
+NEWC
+STU 256
+STU 128
+STSLICE
+ROLLREV 11
+NEWC
+STSLICE
+ROLLREV 10
+NEWC
+STSLICE
+ROLLREV 9
+NEWC
+STSLICE
+ROLLREV 8
+NEWC
+STSLICE
+STU 128
+STU 128
+STU 128
+ROLLREV 4
+NEWC
+STU 128
+STU 8
+STI 1
+STDICT
+STBREFR
+STBREFR
+STBREFR
+STBREFR
+STBREFR
+STBREFR
+ENDC
+POPROOT
+
+.macro upd_only_time_in_c4
+PUSHROOT
+CTOS
+LDU 256
+LDU 64
+NIP
+GETGLOB 3
+ROT
+NEWC
+STU 256
+STU 64
+STSLICE
+ENDC
+POPROOT
+
+.internal-alias :main_internal, 0
+.internal :main_internal
+PUSHROOT
+CTOS
+SBITS
+NEQINT 1
+SETGLOB 6
+PUSH S2
+CTOS
+LDU 4 ; bounced tail
+LDMSGADDR ; bounced src tail
+DROP
+SETGLOB 9
+MODPOW2 1
+GETGLOB 4
+TRUE
+SETINDEXQ 1
+PUSHINT 10000000
+SETINDEXQ 2
+NULL
+SETINDEXQ 3
+PUSHINT 0
+SETINDEXQ 4
+SETGLOB 4
+IFJMPREF {
+	OVER
+	LDSLICE 32
+	NIP
+	CALL $on_bounce_macro$
+}
+OVER
+SEMPTY ; isEmpty
+DUP
+PUSHCONT {
+	DROP
+	OVER
+	LDUQ 32  ; [funcId] body' ok
+	THROWIFNOT 60
+	OVER
+	EQINT 0 ; funcId body' isZero
+	DUP
+	PUSHCONT {
+		BLKDROP2 2, 1
+	}
+	IF
+}
+IFNOT
+IFJMPREF {
+	CALL $receive_macro$
+}
+SWAP
+CALLREF {
+	CALL $public_function_selector$
+}
+THROW 60
+
+.internal-alias :main_external, -1
+.internal :main_external
+PUSHROOT
+CTOS
+SBITS
+NEQINT 1
+SETGLOB 6
+PUSHREFSLICE {
+	.blob x8000000000000000000000000000000000000000000000000000000000000000001_
+}
+SETGLOB 9
+OVER
+CALLREF {
+	CALL $c4_to_c7_with_init_storage$
+}
+LDU 1 ; haveSign msgSlice
+SWAP
+PUSHCONT {
+	PUSHINT 512
+	LDSLICEX ; signatureSlice msgSlice
+	DUP
+	HASHSU ; signatureSlice msgSlice hashMsgSlice
+	SWAP
+	LDU 1 ; signatureSlice hashMsgSlice havePubkey msgSlice
+	SWAP
+	PUSHCONT {
+		LDU 256 ; signatureSlice hashMsgSlice pubkey msgSlice
+		XCHG S3
+		SWAP
+	}
+	PUSHCONT {
+		XCHG S2
+		GETGLOB 2
+	}
+	IFELSE
+	CHKSIGNU ; msgSlice isSigned
+	THROWIFNOT 40
+}
+PUSHCONT {
+	LDU 1 ; havePubkey msgSlice
+	SWAP
+	THROWIF 58
+}
+IFELSE
+LDU 64 ; timestamp msgSlice
+SWAP
+CALL $replay_protection_macro$
+LDU 32 ; expireAt msgSlice
+SWAP
+NOW ; msgSlice expireAt now
+GREATER ; msgSlice expireAt>now
+THROWIFNOT 57
+LDU 32 ; funcId body
+SWAP
+CALLREF {
+	CALL $public_function_selector$
+}
+THROW 60
+
+.macro public_function_selector
+DUP
+PUSHINT 1148983374
+LEQ
+IFJMPREF {
+	DUP
+	PUSHINT 540378077
+	EQUAL
+	IFJMPREF {
+		CALL $getFeesInfo$
+	}
+	DUP
+	PUSHINT 746254468
+	EQUAL
+	IFJMPREF {
+		CALL $getFeesValues$
+	}
+	DUP
+	PUSHINT 839183401
+	EQUAL
+	IFJMPREF {
+		CALL $supportsInterface$
+	}
+	DUP
+	PUSHINT 1148983374
+	EQUAL
+	IFJMPREF {
+		CALL $setRoyalty$
+	}
+}
+DUP
+PUSHINT 1912371251
+LEQ
+IFJMPREF {
+	DUP
+	PUSHINT 1170429668
+	EQUAL
+	IFJMPREF {
+		CALL $getOfferInfo$
+	}
+	DUP
+	PUSHINT 1428234113
+	EQUAL
+	IFJMPREF {
+		CALL $cancelOrderWithCallbacks$
+	}
+	DUP
+	PUSHINT 1843993040
+	EQUAL
+	IFJMPREF {
+		CALL $royaltyInfo$
+	}
+	DUP
+	PUSHINT 1912371251
+	EQUAL
+	IFJMPREF {
+		CALL $cancelOrder$
+	}
+}
+DUP
+PUSHINT 1918234165
+EQUAL
+IFJMPREF {
+	CALL $constructor$
+}
+

@@ -1,0 +1,1260 @@
+.version sol 0.58.1
+
+.macro constructor
+DROP
+GETGLOB 2
+ISNULL
+IFREF {
+	CALL $c4_to_c7_with_init_storage$
+}
+GETGLOB 6
+THROWIF 51
+OVER
+PUSHCONT {
+	LDREF
+	ENDS
+	CTOS
+}
+IF
+LDU 256
+LDMSGADDR
+LDREF
+ENDS
+CTOS
+LDMSGADDR
+ENDS
+ROT
+.loc ../node_modules/@itgold/everscale-tip/contracts/access/OwnableExternal.sol, 12
+CALLREF {
+	CALL $_transferOwnership_internal_macro$
+}
+.loc ../contracts/SellProxy.sol, 34
+ACCEPT
+.loc ../contracts/SellProxy.sol, 36
+SWAP
+SETGLOB 11
+.loc ../contracts/SellProxy.sol, 37
+SETGLOB 12
+.loc ../contracts/SellProxy.sol, 0
+CALLREF {
+	CALL $c7_to_c4$
+}
+THROW 0
+
+.macro onNftCreated
+DROP
+GETGLOB 6
+THROWIFNOT 76
+GETGLOB 2
+ISNULL
+IFREF {
+	CALL $c4_to_c7$
+}
+.loc ../contracts/SellProxy.sol, 40
+OVER
+PUSHCONT {
+	LDREF
+	ENDS
+	CTOS
+}
+IF
+LDU 256
+LDMSGADDR
+LDREF
+ENDS
+CTOS
+LDMSGADDR
+LDREF
+ENDS
+CTOS
+LDMSGADDR
+LDREF
+ENDS
+CTOS
+LDMSGADDR
+LDREF
+ENDS
+.loc ../contracts/SellProxy.sol, 0
+CALLREF {
+	CALL $onNftCreated_internal_macro$
+}
+DROP
+CALLREF {
+	CALL $c7_to_c4$
+}
+THROW 0
+
+.macro onNftCreated_internal_macro
+.loc ../contracts/SellProxy.sol, 40
+DEPTH
+ADDCONST -5
+PICK
+THROWIF 72
+.loc ../contracts/SellProxy.sol, 48
+ROLL 3
+MYADDR
+SDEQ
+PUSHCONT {
+	.loc ../contracts/SellProxy.sol, 58
+	PUSHINT 0
+	PUSHINT 4
+	RAWRESERVE
+	.loc ../contracts/SellProxy.sol, 60
+	DUP
+	CTOS
+	LDU 128
+	LDU 128
+	DROP
+	.loc ../contracts/SellProxy.sol, 65
+	SWAP
+	NEWC
+	STU 128
+	.loc ../contracts/SellProxy.sol, 68
+	ENDC
+	PAIR
+	GETGLOB 11
+	NEWDICT
+	ROT
+	CALLREF {
+		UNPAIR
+		SWAP
+		NEWC
+		STU 128
+		STREF
+	}
+	ROTREV
+	PUSHINT 267
+	DICTSETB
+	.loc ../contracts/SellProxy.sol, 73
+	PUSH S2
+	GETGLOB 11
+}
+PUSHCONT {
+	.loc ../contracts/SellProxy.sol, 51
+	PUSHINT 0
+	PUSHINT 4
+	RAWRESERVE
+	.loc ../contracts/SellProxy.sol, 52
+	NEWDICT
+	PUSH2 S2, S4
+}
+IFELSE
+GETGLOB 9
+TRUE
+NEWC
+STSLICECONST x6_
+STI 1
+STSLICECONST x1_
+STSLICE
+PUSHINT 1
+STUR 111
+ROLLREV 3
+NEWC
+STSLICECONST x09158dea
+STSLICE
+ROTREV
+NEWC
+STSLICE
+STDICT
+STBREFR
+STBREFR
+ENDC
+PUSHINT 128
+SENDRAWMSG
+.loc ../contracts/SellProxy.sol, 0
+BLKDROP 5
+
+.macro cancelSale
+DROP
+GETGLOB 6
+THROWIFNOT 76
+GETGLOB 2
+ISNULL
+IFREF {
+	CALL $c4_to_c7$
+}
+.loc ../contracts/SellProxy.sol, 81
+OVER
+PUSHCONT {
+	LDREF
+	ENDS
+	CTOS
+}
+IF
+LDMSGADDR
+ENDS
+.loc ../contracts/SellProxy.sol, 0
+CALLREF {
+	CALL $cancelSale_internal_macro$
+}
+DROP
+CALLREF {
+	CALL $c7_to_c4$
+}
+THROW 0
+
+.macro cancelSale_internal_macro
+.loc ../contracts/SellProxy.sol, 81
+DEPTH
+ADDCONST -5
+PICK
+EQINT -1
+THROWIFNOT 71
+.loc ../node_modules/@itgold/everscale-tip/contracts/access/OwnableExternal.sol, 31
+CALLREF {
+	CALL $owner_internal_macro$
+}
+GETGLOB 5
+DUP
+ISNULL
+PUSHCONT {
+	DROP
+	PUSHINT 0
+}
+IF
+EQUAL
+THROWIFNOT 100
+.loc ../node_modules/@itgold/everscale-tip/contracts/access/OwnableExternal.sol, 32
+ACCEPT
+.loc ../contracts/SellProxy.sol, 82
+GETGLOB 13
+SWAP
+TRUE
+NEWC
+STSLICECONST x6_
+STI 1
+STSLICECONST x1_
+STSLICE
+SWAP
+STGRAMS
+PUSHINT 1912371251
+STUR 139
+ENDC
+PUSHINT 0
+SENDRAWMSG
+.loc ../contracts/SellProxy.sol, 0
+
+.macro cancelSaleAndReturnManagement
+DROP
+GETGLOB 6
+THROWIFNOT 76
+GETGLOB 2
+ISNULL
+IFREF {
+	CALL $c4_to_c7$
+}
+.loc ../contracts/SellProxy.sol, 89
+OVER
+PUSHCONT {
+	LDREF
+	ENDS
+	CTOS
+}
+IF
+LDMSGADDR
+ENDS
+.loc ../contracts/SellProxy.sol, 0
+CALLREF {
+	CALL $cancelSaleAndReturnManagement_internal_macro$
+}
+DROP
+CALLREF {
+	CALL $c7_to_c4$
+}
+THROW 0
+
+.macro cancelSaleAndReturnManagement_internal_macro
+.loc ../contracts/SellProxy.sol, 89
+DEPTH
+ADDCONST -5
+PICK
+EQINT -1
+THROWIFNOT 71
+.loc ../node_modules/@itgold/everscale-tip/contracts/access/OwnableExternal.sol, 31
+CALLREF {
+	CALL $owner_internal_macro$
+}
+GETGLOB 5
+DUP
+ISNULL
+PUSHCONT {
+	DROP
+	PUSHINT 0
+}
+IF
+EQUAL
+THROWIFNOT 100
+.loc ../node_modules/@itgold/everscale-tip/contracts/access/OwnableExternal.sol, 32
+ACCEPT
+.loc ../contracts/SellProxy.sol, 97
+GETGLOB 13
+PUSHREF {
+}
+PAIR
+MYADDR
+NEWDICT
+ROT
+CALLREF {
+	UNPAIR
+	SWAP
+	NEWC
+	STU 128
+	STREF
+}
+ROTREV
+PUSHINT 267
+DICTSETB
+.loc ../contracts/SellProxy.sol, 101
+GETGLOB 13
+MULCONST 2
+UFITS 128
+ROT
+TRUE
+NEWC
+STSLICECONST x6_
+STI 1
+STSLICECONST x1_
+STSLICE
+SWAP
+STGRAMS
+PUSHINT 1428234113
+STUR 139
+STDICT
+ENDC
+PUSHINT 0
+SENDRAWMSG
+.loc ../contracts/SellProxy.sol, 0
+
+.macro onNftChangeManager
+DROP
+GETGLOB 6
+THROWIFNOT 76
+GETGLOB 2
+ISNULL
+IFREF {
+	CALL $c4_to_c7$
+}
+.loc ../contracts/SellProxy.sol, 108
+OVER
+PUSHCONT {
+	LDREF
+	ENDS
+	CTOS
+}
+IF
+LDU 256
+LDMSGADDR
+LDREF
+ENDS
+CTOS
+LDMSGADDR
+LDREF
+ENDS
+CTOS
+LDMSGADDR
+LDREF
+ENDS
+CTOS
+LDMSGADDR
+LDREF
+ENDS
+CTOS
+LDMSGADDR
+LDREF
+ENDS
+.loc ../contracts/SellProxy.sol, 0
+CALLREF {
+	CALL $onNftChangeManager_internal_macro$
+}
+DROP
+CALLREF {
+	CALL $c7_to_c4$
+}
+THROW 0
+
+.macro onNftChangeManager_internal_macro
+.loc ../contracts/SellProxy.sol, 117
+DROP2
+BLKDROP2 1, 2
+CALLREF {
+	CALL $_returnManagement_internal_macro$
+}
+.loc ../contracts/SellProxy.sol, 0
+
+.macro returnManagementToOwner
+DROP
+GETGLOB 6
+THROWIFNOT 76
+GETGLOB 2
+ISNULL
+IFREF {
+	CALL $c4_to_c7$
+}
+.loc ../contracts/SellProxy.sol, 120
+OVER
+PUSHCONT {
+	LDREF
+	ENDS
+	CTOS
+}
+IF
+LDMSGADDR
+ENDS
+.loc ../contracts/SellProxy.sol, 0
+CALLREF {
+	CALL $returnManagementToOwner_internal_macro$
+}
+DROP
+CALLREF {
+	CALL $c7_to_c4$
+}
+THROW 0
+
+.macro returnManagementToOwner_internal_macro
+.loc ../contracts/SellProxy.sol, 120
+DEPTH
+ADDCONST -5
+PICK
+EQINT -1
+THROWIFNOT 71
+.loc ../node_modules/@itgold/everscale-tip/contracts/access/OwnableExternal.sol, 31
+CALLREF {
+	CALL $owner_internal_macro$
+}
+GETGLOB 5
+DUP
+ISNULL
+PUSHCONT {
+	DROP
+	PUSHINT 0
+}
+IF
+EQUAL
+THROWIFNOT 100
+.loc ../node_modules/@itgold/everscale-tip/contracts/access/OwnableExternal.sol, 32
+ACCEPT
+.loc ../contracts/SellProxy.sol, 126
+GETGLOB 13
+SWAP
+TRUE
+NEWC
+STSLICECONST x6_
+STI 1
+STSLICECONST x1_
+STSLICE
+SWAP
+STGRAMS
+PUSHINT 1278836933224240945
+STUR 171
+ENDC
+PUSHINT 0
+SENDRAWMSG
+.loc ../contracts/SellProxy.sol, 0
+
+.macro returnManagementCallback
+DROP
+GETGLOB 6
+THROWIFNOT 76
+GETGLOB 2
+ISNULL
+IFREF {
+	CALL $c4_to_c7$
+}
+.loc ../contracts/SellProxy.sol, 134
+OVER
+PUSHCONT {
+	LDREF
+	ENDS
+	CTOS
+}
+IF
+LDU 256
+LDMSGADDR
+LDREF
+ENDS
+CTOS
+LDMSGADDR
+LDREF
+ENDS
+CTOS
+LDMSGADDR
+ENDS
+.loc ../contracts/SellProxy.sol, 0
+CALLREF {
+	CALL $returnManagementCallback_internal_macro$
+}
+DROP
+CALLREF {
+	CALL $c7_to_c4$
+}
+THROW 0
+
+.macro returnManagementCallback_internal_macro
+.loc ../contracts/SellProxy.sol, 134
+DEPTH
+ADDCONST -5
+PICK
+THROWIF 72
+.loc ../contracts/SellProxy.sol, 140
+CALLREF {
+	CALL $_returnManagement_internal_macro$
+}
+.loc ../contracts/SellProxy.sol, 0
+
+.globl	_returnManagement_internal
+.type	_returnManagement_internal, @function
+CALL $_returnManagement_internal_macro$
+
+.macro _returnManagement_internal_macro
+.loc ../contracts/SellProxy.sol, 149
+DROP
+MYADDR
+SDEQ
+THROWIFNOT 100
+.loc ../contracts/SellProxy.sol, 150
+PUSHINT 0
+PUSHINT 4
+RAWRESERVE
+.loc ../contracts/SellProxy.sol, 152
+NEWDICT
+OVER
+ROT
+GETGLOB 9
+TRUE
+NEWC
+STSLICECONST x6_
+STI 1
+STSLICECONST x1_
+STSLICE
+PUSHINT 1
+STUR 111
+ROLLREV 3
+NEWC
+STSLICECONST x09158dea
+STSLICE
+ROTREV
+NEWC
+STSLICE
+STDICT
+STBREFR
+STBREFR
+ENDC
+PUSHINT 128
+SENDRAWMSG
+.loc ../contracts/SellProxy.sol, 0
+DROP
+
+.macro setSellRoot
+DROP
+GETGLOB 6
+THROWIFNOT 76
+GETGLOB 2
+ISNULL
+IFREF {
+	CALL $c4_to_c7$
+}
+.loc ../contracts/SellProxy.sol, 159
+OVER
+PUSHCONT {
+	LDREF
+	ENDS
+	CTOS
+}
+IF
+LDMSGADDR
+ENDS
+.loc ../contracts/SellProxy.sol, 0
+CALLREF {
+	CALL $setSellRoot_internal_macro$
+}
+DROP
+CALLREF {
+	CALL $c7_to_c4$
+}
+THROW 0
+
+.macro setSellRoot_internal_macro
+.loc ../contracts/SellProxy.sol, 159
+DEPTH
+ADDCONST -5
+PICK
+EQINT -1
+THROWIFNOT 71
+.loc ../node_modules/@itgold/everscale-tip/contracts/access/OwnableExternal.sol, 31
+CALLREF {
+	CALL $owner_internal_macro$
+}
+GETGLOB 5
+DUP
+ISNULL
+PUSHCONT {
+	DROP
+	PUSHINT 0
+}
+IF
+EQUAL
+THROWIFNOT 100
+.loc ../node_modules/@itgold/everscale-tip/contracts/access/OwnableExternal.sol, 32
+ACCEPT
+.loc ../contracts/SellProxy.sol, 160
+SETGLOB 11
+.loc ../contracts/SellProxy.sol, 0
+
+.macro setMethodsCallsFee
+DROP
+GETGLOB 6
+THROWIFNOT 76
+GETGLOB 2
+ISNULL
+IFREF {
+	CALL $c4_to_c7$
+}
+.loc ../contracts/SellProxy.sol, 163
+OVER
+PUSHCONT {
+	LDREF
+	ENDS
+	CTOS
+}
+IF
+LDU 128
+ENDS
+.loc ../contracts/SellProxy.sol, 0
+CALLREF {
+	CALL $setMethodsCallsFee_internal_macro$
+}
+DROP
+CALLREF {
+	CALL $c7_to_c4$
+}
+THROW 0
+
+.macro setMethodsCallsFee_internal_macro
+.loc ../node_modules/@itgold/everscale-tip/contracts/access/OwnableExternal.sol, 31
+CALLREF {
+	CALL $owner_internal_macro$
+}
+GETGLOB 5
+DUP
+ISNULL
+PUSHCONT {
+	DROP
+	PUSHINT 0
+}
+IF
+EQUAL
+THROWIFNOT 100
+.loc ../node_modules/@itgold/everscale-tip/contracts/access/OwnableExternal.sol, 32
+ACCEPT
+.loc ../contracts/SellProxy.sol, 164
+SETGLOB 13
+.loc ../contracts/SellProxy.sol, 0
+
+.macro getFeesInfo
+DROP
+GETGLOB 6
+THROWIFNOT 76
+GETGLOB 2
+ISNULL
+IFREF {
+	CALL $c4_to_c7$
+}
+.loc ../contracts/SellProxy.sol, 167
+ENDS
+.loc ../contracts/SellProxy.sol, 0
+CALLREF {
+	CALL $getFeesInfo_internal_macro$
+}
+OVER
+PUSHCONT {
+	PUSH S3
+	CTOS
+	LDU 2
+	LDMSGADDR
+	DROP
+	NIP
+	NEWC
+	STSLICECONST xc
+	STSLICE
+	PUSHINT 3815928682
+	STUR 130
+	STU 128
+	ENDC
+	PUSHINT 0
+	SENDRAWMSG
+}
+PUSHCONT {
+	DROP
+}
+IFELSE
+IFREF {
+	CALL $upd_only_time_in_c4$
+}
+THROW 0
+
+.macro getFeesInfo_internal_macro
+.loc ../contracts/SellProxy.sol, 173
+GETGLOB 13
+.loc ../contracts/SellProxy.sol, 0
+
+.macro sellRootAddress
+DROP
+GETGLOB 6
+THROWIFNOT 76
+GETGLOB 2
+ISNULL
+IFREF {
+	CALL $c4_to_c7$
+}
+.loc ../contracts/SellProxy.sol, 176
+LDU 32
+GETGLOB 4
+ROT
+SETINDEXQ 5
+SETGLOB 4
+ENDS
+.loc ../contracts/SellProxy.sol, 0
+CALLREF {
+	CALL $sellRootAddress_internal_macro$
+}
+OVER
+PUSHCONT {
+	PUSH S3
+	CTOS
+	LDU 2
+	LDMSGADDR
+	DROP
+	NIP
+	NEWC
+	STSLICECONST xc
+	STSLICE
+	PUSHINT 1
+	STUR 98
+	SWAP
+	NEWC
+	STSLICECONST xe8ea81be
+	STSLICE
+	STBREFR
+	ENDC
+	PUSHINT 0
+}
+PUSHCONT {
+	GETGLOB 4
+	DUP
+	INDEX 3
+	OVER
+	THIRD
+	GETGLOB 9
+	ROLL 3
+	SECOND
+	NEWC
+	STSLICECONST x2_
+	STI 1
+	STSLICECONST x1_
+	STSLICE
+	SWAP
+	STGRAMS
+	STDICT
+	PUSHINT 1
+	STUR 106
+	SWAP
+	NEWC
+	GETGLOB 4
+	INDEX 5
+	STUR 32
+	STSLICE
+	STBREFR
+	ENDC
+	GETGLOB 4
+	INDEX 4
+}
+IFELSE
+SENDRAWMSG
+IFREF {
+	CALL $upd_only_time_in_c4$
+}
+THROW 0
+
+.macro sellRootAddress_internal_macro
+.loc ../contracts/SellProxy.sol, 183
+GETGLOB 4
+PUSHINT 0
+SETINDEXQ 2
+PUSHINT 64
+SETINDEXQ 4
+FALSE
+SETINDEXQ 1
+SETGLOB 4
+GETGLOB 11
+.loc ../contracts/SellProxy.sol, 0
+
+.macro owner
+DROP
+GETGLOB 6
+THROWIFNOT 76
+GETGLOB 2
+ISNULL
+IFREF {
+	CALL $c4_to_c7$
+}
+.loc ../node_modules/@itgold/everscale-tip/contracts/access/OwnableExternal.sol, 15
+LDU 32
+GETGLOB 4
+ROT
+SETINDEXQ 5
+SETGLOB 4
+ENDS
+.loc ../node_modules/@itgold/everscale-tip/contracts/access/OwnableExternal.sol, 0
+CALLREF {
+	CALL $owner_internal_macro$
+}
+OVER
+PUSHCONT {
+	PUSH S3
+	CTOS
+	LDU 2
+	LDMSGADDR
+	DROP
+	NIP
+	NEWC
+	STSLICECONST xc
+	STSLICE
+	PUSHINT 4160495804
+	STUR 130
+	STU 256
+	ENDC
+	PUSHINT 0
+}
+PUSHCONT {
+	GETGLOB 4
+	DUP
+	INDEX 3
+	OVER
+	THIRD
+	GETGLOB 9
+	ROLL 3
+	SECOND
+	NEWC
+	STSLICECONST x2_
+	STI 1
+	STSLICECONST x1_
+	STSLICE
+	SWAP
+	STGRAMS
+	STDICT
+	PUSHINT 1
+	STUR 106
+	SWAP
+	NEWC
+	GETGLOB 4
+	INDEX 5
+	STUR 32
+	STU 256
+	STBREFR
+	ENDC
+	GETGLOB 4
+	INDEX 4
+}
+IFELSE
+SENDRAWMSG
+IFREF {
+	CALL $upd_only_time_in_c4$
+}
+THROW 0
+
+.globl	owner_internal
+.type	owner_internal, @function
+CALL $owner_internal_macro$
+
+.macro owner_internal_macro
+.loc ../node_modules/@itgold/everscale-tip/contracts/access/OwnableExternal.sol, 16
+GETGLOB 4
+PUSHINT 0
+SETINDEXQ 2
+PUSHINT 64
+SETINDEXQ 4
+FALSE
+SETINDEXQ 1
+SETGLOB 4
+GETGLOB 10
+.loc ../node_modules/@itgold/everscale-tip/contracts/access/OwnableExternal.sol, 0
+
+.macro transferOwnership
+DROP
+GETGLOB 6
+THROWIFNOT 76
+GETGLOB 2
+ISNULL
+IFREF {
+	CALL $c4_to_c7$
+}
+.loc ../node_modules/@itgold/everscale-tip/contracts/access/OwnableExternal.sol, 19
+OVER
+PUSHCONT {
+	LDREF
+	ENDS
+	CTOS
+}
+IF
+LDU 256
+ENDS
+.loc ../node_modules/@itgold/everscale-tip/contracts/access/OwnableExternal.sol, 0
+CALLREF {
+	CALL $transferOwnership_internal_macro$
+}
+DROP
+CALLREF {
+	CALL $c7_to_c4$
+}
+THROW 0
+
+.globl	transferOwnership_internal
+.type	transferOwnership_internal, @function
+CALL $transferOwnership_internal_macro$
+
+.macro transferOwnership_internal_macro
+.loc ../node_modules/@itgold/everscale-tip/contracts/access/OwnableExternal.sol, 31
+CALLREF {
+	CALL $owner_internal_macro$
+}
+GETGLOB 5
+DUP
+ISNULL
+PUSHCONT {
+	DROP
+	PUSHINT 0
+}
+IF
+EQUAL
+THROWIFNOT 100
+.loc ../node_modules/@itgold/everscale-tip/contracts/access/OwnableExternal.sol, 32
+ACCEPT
+.loc ../node_modules/@itgold/everscale-tip/contracts/access/OwnableExternal.sol, 20
+DUP
+THROWIFNOT 100
+.loc ../node_modules/@itgold/everscale-tip/contracts/access/OwnableExternal.sol, 21
+CALLREF {
+	CALL $_transferOwnership_internal_macro$
+}
+.loc ../node_modules/@itgold/everscale-tip/contracts/access/OwnableExternal.sol, 0
+
+.globl	_transferOwnership_internal
+.type	_transferOwnership_internal, @function
+CALL $_transferOwnership_internal_macro$
+
+.macro _transferOwnership_internal_macro
+.loc ../node_modules/@itgold/everscale-tip/contracts/access/OwnableExternal.sol, 25
+GETGLOB 10
+.loc ../node_modules/@itgold/everscale-tip/contracts/access/OwnableExternal.sol, 26
+OVER
+SETGLOB 10
+.loc ../node_modules/@itgold/everscale-tip/contracts/access/OwnableExternal.sol, 27
+PUSHSLICE xc0000000000000000000000000536cd3f2
+NEWC
+STSLICE
+STU 256
+STU 256
+ENDC
+PUSHINT 0
+SENDRAWMSG
+.loc ../node_modules/@itgold/everscale-tip/contracts/access/OwnableExternal.sol, 0
+
+.macro c4_to_c7
+PUSHROOT
+CTOS
+LDU 256 ; pubkey c4
+LDU 64 ; pubkey timestamp c4
+LDU 1 ; ctor flag
+NIP
+LDU 256
+LDREF
+ENDS
+CTOS
+LDMSGADDR
+LDREF
+ENDS
+CTOS
+LDMSGADDR
+LDU 128
+ENDS
+SETGLOB 13
+SETGLOB 12
+SETGLOB 11
+SETGLOB 10
+SETGLOB 3
+SETGLOB 2
+
+.macro c4_to_c7_with_init_storage
+PUSHROOT
+CTOS
+SBITS
+GTINT 1
+PUSHCONT {
+	PUSHINT 0
+	PUSHROOT
+	CTOS
+	PLDDICT ; D
+	PUSHINT 0
+	PUSHREFSLICE {
+		.blob x8000000000000000000000000000000000000000000000000000000000000000001_
+	}
+	DUP
+	PUSHINT 0
+	SETGLOB 13
+	SETGLOB 12
+	SETGLOB 11
+	SETGLOB 10
+	PUSHINT 64
+	DICTUGET
+	THROWIFNOT 61
+	PLDU 256
+	SETGLOB 2
+	PUSHINT 0 ; timestamp
+	SETGLOB 3
+	PUSHINT 100000000
+	SETGLOB 13
+}
+IFREFELSE {
+	CALL $c4_to_c7$
+}
+
+.macro c7_to_c4
+GETGLOB 13
+GETGLOB 12
+GETGLOB 11
+GETGLOB 10
+GETGLOB 3
+GETGLOB 2
+NEWC
+STU 256
+STU 64
+STONE
+STU 256
+ROLLREV 3
+NEWC
+STSLICE
+ROTREV
+NEWC
+STSLICE
+STU 128
+STBREFR
+STBREFR
+ENDC
+POPROOT
+
+.macro upd_only_time_in_c4
+PUSHROOT
+CTOS
+LDU 256
+LDU 64
+NIP
+GETGLOB 3
+ROT
+NEWC
+STU 256
+STU 64
+STSLICE
+ENDC
+POPROOT
+
+.internal-alias :main_internal, 0
+.internal :main_internal
+PUSHROOT
+CTOS
+SBITS
+NEQINT 1
+SETGLOB 6
+PUSH S2
+CTOS
+LDU 4 ; bounced tail
+LDMSGADDR ; bounced src tail
+DROP
+SETGLOB 9
+MODPOW2 1
+GETGLOB 4
+TRUE
+SETINDEXQ 1
+PUSHINT 10000000
+SETINDEXQ 2
+NULL
+SETINDEXQ 3
+PUSHINT 0
+SETINDEXQ 4
+SETGLOB 4
+IFRET
+OVER
+SEMPTY ; isEmpty
+IFJMPREF {
+	GETGLOB 6
+	THROWIFNOT 76
+}
+OVER
+LDUQ 32  ; [funcId] body' ok
+THROWIFNOT 60
+OVER
+IFNOTJMPREF {
+	GETGLOB 6
+	THROWIFNOT 76
+}
+SWAP
+CALLREF {
+	CALL $public_function_selector$
+}
+THROW 60
+
+.internal-alias :main_external, -1
+.internal :main_external
+PUSHROOT
+CTOS
+SBITS
+NEQINT 1
+SETGLOB 6
+PUSHREFSLICE {
+	.blob x8000000000000000000000000000000000000000000000000000000000000000001_
+}
+SETGLOB 9
+OVER
+CALLREF {
+	CALL $c4_to_c7_with_init_storage$
+}
+LDU 1 ; haveSign msgSlice
+SWAP
+PUSHCONT {
+	PUSHINT 512
+	LDSLICEX ; signatureSlice msgSlice
+	DUP
+	HASHSU ; signatureSlice msgSlice hashMsgSlice
+	SWAP
+	LDU 1 ; signatureSlice hashMsgSlice havePubkey msgSlice
+	SWAP
+	PUSHCONT {
+		LDU 256 ; signatureSlice hashMsgSlice pubkey msgSlice
+		XCHG S3
+		SWAP
+	}
+	PUSHCONT {
+		XCHG S2
+		GETGLOB 2
+	}
+	IFELSE
+	DUP
+	SETGLOB 5
+	CHKSIGNU ; msgSlice isSigned
+	THROWIFNOT 40
+}
+PUSHCONT {
+	LDU 1 ; havePubkey msgSlice
+	SWAP
+	THROWIF 58
+}
+IFELSE
+LDU 64 ; timestamp msgSlice
+SWAP
+CALL $replay_protection_macro$
+LDU 32 ; expireAt msgSlice
+SWAP
+NOW ; msgSlice expireAt now
+GREATER ; msgSlice expireAt>now
+THROWIFNOT 57
+LDU 32 ; funcId body
+SWAP
+CALLREF {
+	CALL $public_function_selector$
+}
+THROW 60
+
+.macro public_function_selector
+DUP
+PUSHINT 529906678
+LEQ
+IFJMPREF {
+	DUP
+	PUSHINT 283605187
+	EQUAL
+	IFJMPREF {
+		CALL $onNftCreated$
+	}
+	DUP
+	PUSHINT 443097434
+	EQUAL
+	IFJMPREF {
+		CALL $returnManagementToOwner$
+	}
+	DUP
+	PUSHINT 493209298
+	EQUAL
+	IFJMPREF {
+		CALL $cancelSaleAndReturnManagement$
+	}
+	DUP
+	PUSHINT 529906678
+	EQUAL
+	IFJMPREF {
+		CALL $constructor$
+	}
+}
+DUP
+PUSHINT 1482330212
+LEQ
+IFJMPREF {
+	DUP
+	PUSHINT 601546343
+	EQUAL
+	IFJMPREF {
+		CALL $onNftChangeManager$
+	}
+	DUP
+	PUSHINT 1012166213
+	EQUAL
+	IFJMPREF {
+		CALL $cancelSale$
+	}
+	DUP
+	PUSHINT 1249580849
+	EQUAL
+	IFJMPREF {
+		CALL $returnManagementCallback$
+	}
+	DUP
+	PUSHINT 1482330212
+	EQUAL
+	IFJMPREF {
+		CALL $transferOwnership$
+	}
+}
+DUP
+PUSHINT 1811329671
+LEQ
+IFJMPREF {
+	DUP
+	PUSHINT 1610349763
+	EQUAL
+	IFJMPREF {
+		CALL $setSellRoot$
+	}
+	DUP
+	PUSHINT 1668445034
+	EQUAL
+	IFJMPREF {
+		CALL $getFeesInfo$
+	}
+	DUP
+	PUSHINT 1760199102
+	EQUAL
+	IFJMPREF {
+		CALL $sellRootAddress$
+	}
+	DUP
+	PUSHINT 1811329671
+	EQUAL
+	IFJMPREF {
+		CALL $setMethodsCallsFee$
+	}
+}
+DUP
+PUSHINT 2013012156
+EQUAL
+IFJMPREF {
+	CALL $owner$
+}
+
